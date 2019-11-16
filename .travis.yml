@@ -1,0 +1,40 @@
+matrix:
+  include:
+    - name: 'macOS'
+      os: osx
+      language: python
+      python:
+        - '3.7'
+
+    # - name: 'liunx'
+    #   os: linux
+    #   language: python
+    #   python:
+    #     - '3.7'
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - |
+    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+      pyinstaller main_linux.spec
+    else
+      pyinstaller main_darwin.spec
+    fi
+
+deploy:
+  provider: releases
+  skip_cleanup: true
+  draft: true
+  overwrite: true
+  api_key:
+    secure: BR8zz7VpK6FFtIks3I1Zcw/GicI9GnppcbOCi6+CgKbYBA1wSL9CataXOblQkZusryhz/8DjpLQA8QKZm1z9yjtiJk4xtRnNtkh3Bu0POXpREoJc2WP6oVhYmOpKErcsxEcsbx2S62w/q8tbmWyuFca2f+0tXnaV/vZypyuYs9na0mUbTK/lGoQfWXay8H2RtUj01dDiU8uLXQqGqESUsNNDwRtsWfKgI5pXHCetCP8l/ey93XN50ng2ezz0pwxZJfGmvMChhvnWJbxIXVtOqxm6DrhZF5yIDKWlB+cIzA+U0NgHrdcRvbYWN4KLg3w3q26fz+uEnIsVrHOUX9DgU6V9qZNUpuk5iseEWhHBJe74j3kgV1Za5XTtAQXQShyJLbu5XI0bNREY3NLzOYSpPP+yvAm09a332UUgX4M4qf6dZwG7gjzUBh/lBIfJyHk0UZGf6Xu3rvdpkNz3+ZAGkUy1xrppydZ8++EYJa+yi7BgzGuCWcWzExWT9mRG2Q6mYUWR/4wp+4W6jeAl4X12PL/ixuU23A3SYhQLBMMr8rR+VJYMJzCjPfq5PaNsf1Srm9XboGZp/5Iz46rMwjbilwKDRwNqSs4B2U2qKKn8PuCd99rXA2riINMhalTNL+p/DB5yg7rlkeIpE9psVmdZO+y8z/WtXT/7MB/N9Nr5R1I=
+  on:
+    repo: wuyue92tree/travis-pyside2-demo
+    tag: true
+    all_branches: true
+branches:
+  except:
+    - develop
+    - master
