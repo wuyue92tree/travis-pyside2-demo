@@ -1,26 +1,32 @@
-matrix:
+language: python
+jobs:
   include:
-    - name: 'macOS'
-      os: osx
-      language: python
+    - name: 'Python 3.8.0 on Xenial Linux'
       python:
-        - '3.7'
-
-    # - name: 'liunx'
-    #   os: linux
-    #   language: python
-    #   python:
-    #     - '3.7'
+        - '3.8'
+    - name: 'Python 3.7.4 on macOS'
+      os: osx
+      osx_image: xcode11.2
+      language: shell
+    # - name: 'Python 3.8.0 on Windows'
+    #   os: windows
+    #   language: shell
+    #   before_install:
+    #     - choco install python --version 3.8.0
+    #     - python -m pip install --upgrade pip
+    #   env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 
 install:
-  - pip install -r requirements.txt
+  - pip3 install -r requirements.txt
 
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       pyinstaller main_linux.spec
-    else
+    else if [ "$TRAVIS_OS_NAME" == "darwin" ]; then
       pyinstaller main_darwin.spec
+    else
+      pyinstaller main_win32.spec
     fi
 
 deploy:
