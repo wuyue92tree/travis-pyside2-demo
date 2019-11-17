@@ -23,7 +23,7 @@ script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       pyinstaller main_linux.spec
-    else if [ "$TRAVIS_OS_NAME" == "darwin" ]; then
+    elif [ "$TRAVIS_OS_NAME" == "darwin" ]; then
       pyinstaller main_darwin.spec
     else
       pyinstaller main_win32.spec
