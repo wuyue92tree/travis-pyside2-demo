@@ -1,5 +1,5 @@
 language: python
-jobs:
+matrix:
   include:
     - name: 'Python 3.7.4 on Xenial Linux'
       python:
