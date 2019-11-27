@@ -15,3 +15,12 @@ PyInstaller==3.5
 - linux
 - osx
 - windows
+
+## Dirs
+
+- conf: global settings
+- hooks: put the pyinstaller hooks script here
+- ui: ui file create from qt designer
+- widgets: custom widgets
+- windows: init windows
+- windows/ui: autocreated uic by call python setup.py update_windows
