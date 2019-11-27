@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from PySide2.QtWidgets import QMainWindow
 from windows.ui import mainwindow
 

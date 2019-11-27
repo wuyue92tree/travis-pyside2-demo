@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import sys
 from PySide2.QtWidgets import QApplication, QLabel
 from windows import MainWindow

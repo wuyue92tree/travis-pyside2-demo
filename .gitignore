@@ -1,2 +1,6 @@
 __pycahe__
 *.pyc
+dist/*
+build/*
+spec/*
+.vscode/*
