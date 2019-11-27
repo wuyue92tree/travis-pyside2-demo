@@ -22,14 +22,14 @@ install:
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      pyinstaller main_linux.spec
-      zip -q -r dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/*
+      python setup.py build
+      zip -q -r dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/linux/*
     elif [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      pyinstaller main_darwin.spec
-      zip -q -r dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/*
+      python setup.py build
+      zip -q -r dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/darwin/*
     else
-      pyinstaller main_win32.spec
-      7z a dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/*
+      python setup.py build
+      7z a dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/win32/*
     fi
 
 deploy:
