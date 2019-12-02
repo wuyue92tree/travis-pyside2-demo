@@ -4,7 +4,7 @@ import os
 import shutil
 import subprocess
 from optparse import OptionParser
-from .conf import settings
+from conf import settings
 
 app_name = 'travis-pyside2-demo'
 
