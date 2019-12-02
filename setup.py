@@ -4,7 +4,7 @@ import os
 import shutil
 import subprocess
 from optparse import OptionParser
-from conf import settings
+from conf import settings, version
 
 app_name = 'travis-pyside2-demo'
 
@@ -71,7 +71,8 @@ def clean():
 
 
 if __name__ == "__main__":
-    parser = OptionParser(usage="Usage: %prog [options] arg1 arg2")
+    parser = OptionParser(usage="Usage: %prog [options] arg1 arg2",
+                          version=version)
     parser.add_option(
         '-t', '--target', help='target: build/update_windows/clean')
     options, args = parser.parse_args()
