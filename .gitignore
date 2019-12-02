@@ -4,3 +4,7 @@ dist/*
 build/*
 spec/*
 .vscode/*
+.idea/*
+*.iml
+.python-version
+windows/ui/*.py
