@@ -12,7 +12,7 @@ matrix:
       os: windows
       language: shell
       before_install:
-        - choco install python --version 3.7.4
+        - choco install python --version 3.7.4  # no command python3 will be create
         - python -m pip install --upgrade pip
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 
@@ -28,7 +28,7 @@ script:
       python3 setup.py -t build
       zip -q -r dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/darwin/*.app
     else
-      python3 setup.py -t build
+      python setup.py -t build
       7z a dist/travis-pyside2-demo-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip dist/win32/*.exe
     fi
 
