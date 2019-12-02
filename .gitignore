@@ -7,3 +7,4 @@ spec/*
 .idea/*
 *.iml
 .python-version
+windows/ui/*.py
